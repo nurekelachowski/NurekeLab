@@ -1,0 +1,213 @@
+# NurekeLab
+NurekeLab company,CEO Nurkhan Gabdolla
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width,initial-scale=1">
+  <title>NurekeLab — IT & Design</title>
+  <style>
+    :root {
+      --bg: #0b0b0b;
+      --text: #f5f5f5;
+      --muted: #b0b0b0;
+      --gold: #d4af37;
+      --gold-2: #e6c766;
+      --card: #141414;
+    }
+    body.light {
+      --bg: #ffffff;
+      --text: #111111;
+      --muted: #555555;
+      --gold: #d4af37;
+      --gold-2: #c9a832;
+      --card: #f2f2f2;
+    }
+    body {
+      margin:0;
+      font-family: 'Inter', sans-serif;
+      background: var(--bg);
+      color: var(--text);
+      line-height:1.6;
+      transition: background 0.3s, color 0.3s;
+    }
+
+    /* ---------- ЛОГОТИП ---------- */
+    .brand {
+      font-size: 38px;
+      font-weight: 900;
+      color: var(--gold);
+      text-transform: uppercase;
+      letter-spacing: 2px;
+      text-shadow: 0 0 15px rgba(212,175,55,0.5), 0 0 30px rgba(230,199,102,0.3);
+      animation: glow 3s infinite ease-in-out;
+    }
+    @keyframes glow {
+      0%, 100% { text-shadow: 0 0 15px rgba(212,175,55,0.4), 0 0 30px rgba(230,199,102,0.2); }
+      50% { text-shadow: 0 0 25px rgba(212,175,55,0.8), 0 0 50px rgba(230,199,102,0.5); }
+    }
+
+    header { text-align:center; padding:30px 0 10px 0; }
+    h1,h2,h3 { margin:0; }
+    h1 { font-size: 26px; color: var(--gold); }
+    h2 { font-size: 22px; margin-bottom:12px; color: var(--gold); }
+    h3 { font-size: 18px; }
+
+    .container { width: 92%; max-width: 800px; margin: 0 auto; padding: 20px 0; }
+
+    .lang-switch { display:flex; justify-content:center; gap:10px; margin:12px 0; flex-wrap: wrap; }
+    .btn { background: var(--gold); color:#111; padding:8px 14px; border-radius:8px; font-weight:600; border:none; cursor:pointer; }
+    .btn:hover { background: var(--gold-2); }
+
+    /* услуги */
+    .services-list { display:flex; flex-direction:column; gap:16px; }
+    .service-card {
+      display:flex; justify-content:space-between; align-items:center;
+      background: var(--card);
+      border:1px solid var(--gold);
+      border-radius:14px;
+      padding:16px 20px;
+      box-shadow:0 4px 12px rgba(212,175,55,0.15);
+      transition:0.2s;
+      opacity: 0; transform: translateY(30px);
+    }
+    .service-card.visible { opacity:1; transform:translateY(0); transition:0.6s; }
+    .service-card h3 { color:var(--gold); margin-bottom:4px; }
+    .service-card p { margin:0; font-size:14px; color:var(--muted); }
+    .price { font-weight:700; font-size:18px; color:var(--gold-2); white-space:nowrap; }
+    .old-price { text-decoration:line-through; color:gray; font-size:14px; margin-right:8px; }
+
+    /* отзывы */
+    .reviews { display:flex; flex-direction:column; gap:14px; }
+    .review {
+      background: var(--card);
+      border-left:4px solid var(--gold);
+      border-radius:10px;
+      padding:14px 16px;
+      font-size:15px;
+      opacity:0; transform:translateY(30px);
+    }
+    .review.visible { opacity:1; transform:translateY(0); transition:0.6s; }
+    .review strong { color:var(--gold); }
+
+    /* FAQ */
+    .faq { display:flex; flex-direction:column; gap:14px; margin-top:30px; }
+    .faq-item {
+      background: var(--card);
+      border:1px solid var(--gold);
+      border-radius:10px;
+      padding:12px 16px;
+      opacity:0; transform:translateY(30px);
+    }
+    .faq-item.visible { opacity:1; transform:translateY(0); transition:0.6s; }
+    .faq-item h3 { font-size:16px; margin-bottom:6px; color:var(--gold); }
+
+    /* контакты */
+    .contacts { display:flex; flex-wrap:wrap; gap:10px; margin-top:14px; }
+    .chip {
+      display:flex; align-items:center; gap:8px;
+      padding:10px 14px;
+      background: var(--card);
+      border:1px solid var(--gold);
+      border-radius:12px;
+      font-weight:600;
+      color:var(--gold);
+      text-decoration:none;
+      animation:pulse 2s infinite;
+    }
+    @keyframes pulse {
+      0% {transform:scale(1);}
+      50% {transform:scale(1.05);}
+      100% {transform:scale(1);}
+    }
+
+    /* кнопка заказать */
+    .order-btn {
+      display:block;
+      margin:30px auto;
+      background: var(--gold);
+      color:#111;
+      padding:14px 22px;
+      border-radius:10px;
+      font-weight:700;
+      font-size:18px;
+      text-align:center;
+      text-decoration:none;
+      animation: blink 1s infinite;
+    }
+    @keyframes blink {
+      0%, 50%, 100% {opacity:1;}
+      25%, 75% {opacity:0.4;}
+    }
+
+    footer { text-align:center; padding:20px 0; font-size:14px; color:var(--muted); }
+  </style>
+</head>
+<body>
+  <header>
+    <div class="brand">NurekeLab</div>
+    <div class="container">
+      <h1 id="title">Нурхан — IT специалист</h1>
+      <p id="subtitle">Создание сайтов, настройка устройств, техподдержка</p>
+      <div class="lang-switch">
+        <button class="btn" onclick="setLang('ru')">RU</button>
+        <button class="btn" onclick="setLang('kz')">KZ</button>
+        <button class="btn" onclick="setLang('en')">EN</button>
+        <button class="btn" id="themeToggle">🌗 Тема</button>
+      </div>
+    </div>
+  </header>
+
+  <main class="container">
+    <section id="services">
+      <h2 id="servicesTitle">💼 Услуги</h2>
+      <div class="services-list" id="servicesList"></div>
+      <a href="https://wa.me/77750576263" target="_blank" class="order-btn" id="orderNow">📥 Заказать сейчас</a>
+    </section>
+
+    <section id="reviews" style="margin-top:40px;">
+      <h2 id="reviewsTitle">⭐ Отзывы клиентов</h2>
+      <div class="reviews" id="reviewsList"></div>
+    </section>
+
+    <section id="faq" style="margin-top:40px;">
+      <h2 id="faqTitle">❓ Частые вопросы</h2>
+      <div class="faq" id="faqList"></div>
+    </section>
+
+    <section id="contacts" style="margin-top:40px;">
+      <h2 id="contactsTitle">📱 Контакты</h2>
+      <div class="contacts">
+        <a href="tel:+77750576263" class="chip" id="phone">📞 +7 775 057 62 63</a>
+        <a href="https://wa.me/77750576263" class="chip">💬 WhatsApp</a>
+        <a href="https://t.me/nurekelachowski" class="chip">📲 Telegram</a>
+        <a href="mailto:nurkhangabdolla7@icloud.com" class="chip">📧 Email</a>
+      </div>
+    </section>
+
+    <a href="https://wa.me/77750576263" target="_blank" class="order-btn" id="orderNowBottom">📥 Заказать сейчас</a>
+  </main>
+
+  <footer>
+    © 2025 <span id="footerName">Нурхан</span>. <span id="footerRights">Все права защищены.</span>
+  </footer>
+
+  <script>
+    const content = {
+      ru: { title: "Нурхан — IT специалист", subtitle: "Создание сайтов, настройка устройств, техподдержка" },
+      kz: { title: "Нұрхан — IT маман", subtitle: "Веб-сайт жасау, құрылғыларды баптау, техникалық қолдау" },
+      en: { title: "Nurhan — IT Specialist", subtitle: "Website development, device setup, technical support" }
+    };
+    function setLang(lang) {
+      const c = content[lang];
+      document.getElementById("title").textContent = c.title;
+      document.getElementById("subtitle").textContent = c.subtitle;
+    }
+    const themeToggle = document.getElementById("themeToggle");
+    themeToggle.addEventListener("click", () => {
+      document.body.classList.toggle("light");
+      themeToggle.textContent = document.body.classList.contains("light") ? "🌞 Светлая" : "🌙 Тёмная";
+    });
+  </script>
+</body>
+</html>
